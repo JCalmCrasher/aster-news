@@ -6,4 +6,4 @@
 export default {};
 </script>
 
-<style lang="js"></style>
+<style lang="css"></style>
