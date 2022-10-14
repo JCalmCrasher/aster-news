@@ -1,9 +1,9 @@
-<script setup lang="js">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-</script>
-
 <template>
-  Aster News
+  <div>Aster News</div>
 </template>
 
+<script>
+export default {};
+</script>
+
+<style lang="js"></style>
