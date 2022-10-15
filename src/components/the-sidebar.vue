@@ -9,18 +9,26 @@
       <div class="mt-7">
         <ul class="flex flex-col gap-1">
           <li v-for="(menu, index) in menus" :key="index">
-            <hr v-if="menu.isSingle" class='border-[0.2px] border-[#becbd1] opacity-60' />
+            <hr
+              v-if="menu.isSingle"
+              class="border-[0.2px] border-[#becbd1] opacity-60"
+            />
             <a
               :class="[
                 menuClass,
-                menu.isActive ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]' : ''
+                menu.isActive
+                  ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
+                  : ''
               ]"
               :href="menu.link"
             >
-              <component :is="menu.icon"></component>
+              <component :key="index" :is="menu.icon"></component>
               {{ menu.name }}
             </a>
-            <hr v-if="menu.isSingle" class='border-[0.2px] border-[#becbd1] opacity-60' />
+            <hr
+              v-if="menu.isSingle"
+              class="border-[0.2px] border-[#becbd1] opacity-60"
+            />
           </li>
         </ul>
       </div>
@@ -39,10 +47,18 @@ import SportsIcon from "../assets/award.svg";
 import MessageIcon from "../assets/message-circle.svg";
 import NotificationIcon from "../assets/bell.svg";
 import SettingsIcon from "../assets/settings.svg";
+import { markRaw } from "vue";
 
 export default {
   name: "TheSidebar",
-  components: { LogoSVG,HomeIcon,GlobeIcon, BusinessIcon,HealthIcon,Covid19Icon,EntertainmentIcon,
+  components: {
+    LogoSVG,
+    HomeIcon,
+    GlobeIcon,
+    BusinessIcon,
+    HealthIcon,
+    Covid19Icon,
+    EntertainmentIcon,
 SportsIcon,
 MessageIcon,
 NotificationIcon,
@@ -52,61 +68,61 @@ SettingsIcon },
       menus:[
         {
           name:'Top Stories',
-          icon:HomeIcon,
+          icon:markRaw(HomeIcon),
           link:'/',
           isActive:true
         },
         {
           name:'Around the World',
-          icon:GlobeIcon,
+          icon: markRaw(GlobeIcon),
           link:'/',
           isActive:false
         },
         {
           name:'Health',
-          icon:HealthIcon,
+          icon: markRaw(HealthIcon),
           link:'/',
           isActive:false
         },
         {
           name:'Covid 19',
-          icon:Covid19Icon,
+          icon: markRaw(Covid19Icon),
           link:'/',
           isActive:false,
           isSingle:true
         },
         {
           name:'Entertainment',
-          icon:EntertainmentIcon,
+          icon: markRaw(EntertainmentIcon),
           link:'/',
           isActive:false,
         },
         {
           name:'Sports',
-          icon:SportsIcon,
+          icon: markRaw(SportsIcon),
           link:'/',
           isActive:false,
         },
         {
           name:'Discussion',
-          icon:MessageIcon,
+          icon: markRaw(MessageIcon),
           link:'/',
           isActive:false
         },
         {
           name:'Notification',
-          icon:NotificationIcon,
+          icon: markRaw(NotificationIcon),
           link:'/',
           isActive:false
         },
         {
           name:'News Feed Settings',
-          icon:SettingsIcon,
+          icon: markRaw(SettingsIcon),
           link:'/',
           isActive:false
         }
       ],
-       menuClass:"pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
+       menuClass:"text-sm pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
     }
   },
 };
