@@ -1,11 +1,10 @@
 <template>
-  <div>Aster News</div>
-  <Card></Card>
+  <the-sidebar />
 </template>
 
 <script>
-import Card from "./component/card.vue";
-export default { components: { Card } };
+import TheSidebar from "./components/the-sidebar.vue";
+export default { components: { TheSidebar } };
 </script>
 
 <style lang="css"></style>
