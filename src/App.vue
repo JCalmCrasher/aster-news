@@ -1,9 +1,10 @@
 <template>
-  <div>Aster News</div>
+  <the-sidebar />
 </template>
 
 <script>
-export default {};
+import TheSidebar from "./components/the-sidebar.vue";
+export default { components: { TheSidebar } };
 </script>
 
 <style lang="css"></style>
