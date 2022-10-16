@@ -5,12 +5,12 @@ module.exports = {
     colors: {
       "amber-black": "var(--app-amber-black)",
       black: "var(--app-black)",
-      'light-blue': "var(--app-light-blue)",
+      "light-blue": "var(--app-light-blue)",
       blue: "var(--app-blue)",
       "blue-deep": "var(--app-blue-deep)",
-      "sky-blue": "var(--app-sky-blue)"
+      "sky-blue": "var(--app-sky-blue)",
     },
-    extend: {}
+    extend: {},
   },
-  plugins: []
+  plugins: [],
 };

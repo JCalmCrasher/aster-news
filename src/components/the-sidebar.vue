@@ -18,7 +18,7 @@
                 menuClass,
                 menu.isActive
                   ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
-                  : ''
+                  : '',
               ]"
               :href="menu.link"
             >
