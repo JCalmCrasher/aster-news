@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full sm:w-[260px] h-full">
+  <div class="w-full sm:w-[260px] h-full fixed left-0 top-0 hidden sm:block">
     <div class="py-5">
       <div class="flex gap-4 items-center px-[30px]">
         <LogoSVG />
