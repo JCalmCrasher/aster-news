@@ -10,3 +10,10 @@
   --app-blue-deep: #0768b5;
   --app-sky-blue: #2f9ff8;
 }
+
+@layer components {
+  .btn-regular{
+    @apply bg-white text-sm rounded-3xl px-4 py-2 hover:text-white hover:bg-sky-blue
+
+  }
+}
