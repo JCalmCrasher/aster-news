@@ -4,10 +4,10 @@
     <TheTopStory/>
   </header>
   <main class="sm:ml-[260px]">
-    <div class="w-full sm:w-[771px]">
+    <div class="w-full h-[380px] sm:w-[771px] sm:h-auto">
       <ArticleFeatureCard />
     </div>
-    <div class="flex flex-row sm:w-[771px] gap-5 mt-5">
+    <div class="flex flex-col sm:w-[771px] gap-5 mt-5 sm:flex-row">
       <ArticleSingleCard />
       <ArticleSingleCard />
     </div>

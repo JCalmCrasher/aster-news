@@ -1,7 +1,7 @@
 <template lang="">
     <div>
         <div class="mb-[22px]">
-            <h1 class="text-xl font-bold text-black">Top Stories for you</h1>
+            <a class="text-xl font-bold text-black">Top Stories for you</a>
         </div>
 
         <div class="space-x-[10px] mb-6  flex flex-row">
