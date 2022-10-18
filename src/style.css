@@ -13,7 +13,7 @@
 
 @layer components {
   .btn-regular{
-    @apply bg-white text-sm rounded-3xl px-4 py-2 hover:text-white hover:bg-sky-blue
+    @apply bg-white px-3 py-2 rounded-3xl sm:px-4  hover:text-white hover:bg-sky-blue text-sm
 
   }
 }
