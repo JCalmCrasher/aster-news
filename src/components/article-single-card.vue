@@ -14,7 +14,7 @@
         </p>
       </div>
       <div class="mx-[17px]">
-        <img src="../img/Rectangle 16(2).png" alt="" class="" />
+        <img src="../img/battleground.png" alt="" class="" />
       </div>
     </div>
     <div class="flex flex-row mt-2 box-border mb-[13px]">
