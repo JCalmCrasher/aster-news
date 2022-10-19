@@ -11,7 +11,7 @@
       </a>
 
       <div class="flex flex-row justify-center my-[17px] sm:hidden">
-        <img src="../img/iphone.png" alt="" />
+        <img src="../img/phone.png" alt="" />
       </div>
 
       <div class="max-w-[360px] sm:max-w-[530px]">
