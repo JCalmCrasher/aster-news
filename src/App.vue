@@ -1,7 +1,10 @@
 <template>
   <the-sidebar />
   <header class="sm:ml-[260px]">
-    <TheTopStory/>
+    <TopSearch/>
+    <div>
+      <TheTopStory/>
+    </div>
   </header>
   <main class="sm:ml-[260px]">
     <div class="w-full h-[380px] sm:w-[771px] sm:h-auto">
@@ -19,8 +22,9 @@ import TheSidebar from "./components/the-sidebar.vue";
 import ArticleFeatureCard from "./components/article-feature-card.vue";
 import ArticleSingleCard from "./components/article-single-card.vue";
 import TheTopStory from "./components/the-top-story.vue";
+import TopSearch from "./components/top-search.vue";
 export default {
-  components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory },
+  components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch },
 };
 </script>
 
