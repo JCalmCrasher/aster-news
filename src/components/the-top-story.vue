@@ -1,10 +1,10 @@
 <template lang="">
     <div>
-        <div class="mb-[22px]">
+        <div class="mb-[22px] mx-2 sm:mx-0">
             <a class="text-xl font-bold text-black">Top Stories for you</a>
         </div>
 
-        <div class="sm:space-x-[10px] mb-6 grid grid-cols-3 gap-3 sm:flex sm:flex-row">
+        <div class="mx-4 mb-6 grid grid-cols-3 gap-3 sm:mx-0 lg:flex lg:flex-row lg:space-x-[10px]">
             <button class="btn-regular bg-sky-blue text-white">All</button>
             <button class="btn-regular">Andriod</button>
             <button class="btn-regular">Cricket</button>
