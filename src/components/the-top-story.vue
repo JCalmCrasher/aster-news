@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        <div class="mb-[22px]">
+        <div class="mb-[22px] mx-2 sm:mx-0">
             <a class="text-xl font-bold text-black">Top Stories for you</a>
         </div>
 
