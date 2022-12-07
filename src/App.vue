@@ -1,20 +1,22 @@
 <template>
   <the-sidebar />
-  <header class="sm:ml-[260px]">
-    <TopSearch/>
-    <div>
-      <TheTopStory/>
-    </div>
-  </header>
-  <main class="sm:ml-[260px]">
-    <div class="w-full h-[380px] sm:w-[771px] sm:h-auto">
-      <ArticleFeatureCard />
-    </div>
-    <div class="flex flex-col sm:w-[771px] gap-5 mt-5 sm:flex-row">
-      <ArticleSingleCard />
-      <ArticleSingleCard />
-    </div>
-  </main>
+  <div class="sm:ml-[321px]">
+    <header>
+      <TopSearch/>
+      <div>
+        <TheTopStory/>
+      </div>
+    </header>
+    <main >
+      <div class="w-full h-[380px] sm:w-[771px] sm:h-auto">
+        <ArticleFeatureCard />
+      </div>
+      <div class="flex flex-col sm:w-[771px] gap-5 mt-5 sm:flex-row">
+        <ArticleSingleCard />
+        <ArticleSingleCard />
+      </div>
+    </main>
+  </div>
 </template>
 
 <script>
