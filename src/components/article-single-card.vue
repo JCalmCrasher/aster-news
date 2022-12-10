@@ -1,13 +1,15 @@
 <template>
   <div class="bg-white max-h-[191px] pl-[23px]">
     <div class="rounded flex flex-row mt-[17px]">
-      <div class="">
-         <a href="#" class="text-base font-medium mb-[10px] text-black w-[182px] hover:text-sky-blue">
-            Battlegrounds Mobile India iOS release date
-         </a>
+      <div>
+        <div class="max-w-[290px]">
+          <a href="#" class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[19px]">
+             Battlegrounds Mobile India iOS release date
+          </a>
+        </div>
 
         <p
-          class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] min-w-[179px]"
+          class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] sm:max-w-[279px] lg:max-w-[179px]"
         >
           The reason behind their disappointment is that iPhone users have
           been..
