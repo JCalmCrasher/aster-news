@@ -11,7 +11,7 @@
       <div class="h-[380px] lg:w-[771px] lg:h-auto">
         <ArticleFeatureCard />
       </div>
-      <div class="flex flex-col sm:w-[771px] gap-5 mt-5 lg:flex-row">
+      <div class="flex flex-col lg:w-[771px] gap-5 mt-5 lg:flex-row">
         <ArticleSingleCard />
         <ArticleSingleCard />
       </div>
