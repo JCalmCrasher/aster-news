@@ -11,6 +11,7 @@ module.exports = {
       "sky-blue": "var(--app-sky-blue)",
       white: '#fff',
       transparent: 'transparent',
+      "home-blue": "var(--app-home-blue)"
     },
     extend: {},
   },

@@ -32,6 +32,11 @@
 <script>
 export default {
     name: "Hambuger",
+    data() {
+        return {
+            hamburger: false
+        }
+    },
 }
 
 </script>

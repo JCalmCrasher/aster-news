@@ -9,6 +9,8 @@
   --app-blue: #2f9ff81a;
   --app-blue-deep: #0768b5;
   --app-sky-blue: #2f9ff8;
+  --app-home-blue: #f4f9f8;
+  
 }
 
 @layer components {

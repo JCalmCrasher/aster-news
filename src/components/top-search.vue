@@ -1,6 +1,6 @@
 <template lang="">
 
-    <div class="pt-2 mb-4 lg:pt-[15px] lg:mb-[38px]">
+    <div :class="[this.hamburger? 'bg-white':'bg-home-blue','pt-2 mb-4 lg:pt-[15px] lg:mb-[38px]']">
        <div class="hidden  flex-row items-center justify-between px-2 sm:mr-[34px] sm:flex">
         <div class="flex flex-row">
             <input type="text" name="" id="" placeholder="Search for news..." class="rounded border border-blue pl-[10px] pr-[40px] py-[8px] bg-light-blue outline-none text-xs box-border text-black sm:w-[230px] lg:w-[455px] lg:px-[14px] lg:py-[14px] lg:text-sm  focus:border focus:border-black">
@@ -30,7 +30,7 @@
             </div>
         </div>
 <!-- menu -->
-    <Hamburger  v-if="hamburger"/>
+    <Hamburger v-if="hamburger" />
             
     </div>
     </div>
@@ -40,15 +40,15 @@
 import Hamburger from "./hambuger.vue"
 export default {
     name: "TopSearch",
-    components: {Hamburger},
+    components: { Hamburger },
     data() {
         return {
-           hamburger: false
+            hamburger: false
         }
     },
     methods: {
-        showMenu(status){
-         this.hamburger = status
+        showMenu(status) {
+            this.hamburger = status
         }
     },
 }
