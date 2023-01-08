@@ -9,7 +9,9 @@ module.exports = {
       blue: "var(--app-blue)",
       "blue-deep": "var(--app-blue-deep)",
       "sky-blue": "var(--app-sky-blue)",
-      white: '#fff'
+      white: '#fff',
+      transparent: 'transparent',
+      "home-blue": "var(--app-home-blue)"
     },
     extend: {},
   },
