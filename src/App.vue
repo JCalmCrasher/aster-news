@@ -1,4 +1,4 @@
-<template>
+<template class="box-border">
   <the-sidebar />
   <div class="sm:ml-[321px]">
     <header>
@@ -11,9 +11,9 @@
       <div class="h-[380px] lg:w-[771px] lg:h-auto">
         <ArticleFeatureCard />
       </div>
-      <div class="flex flex-col lg:w-[771px] gap-5 mt-5 lg:flex-row" v-for="task in newsList">
-        <ArticleSingleCard :title="task.title" content="task"
-          image="/src/img/phone.png" />
+      <div class="flex flex-col lg:w-[771px] gap-5 mt-5 lg:flex-row" :key="task.id" v-for="task in newsList">
+        <ArticleSingleCard :title="task.title" :content="task.description"
+          :image="task.urlToImage" :publisher="task.author" :time="task.publishedAt" :url="task.url"/>
       </div>
     </main>
   </div>

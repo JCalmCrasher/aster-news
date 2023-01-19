@@ -6,7 +6,7 @@
     <div class="rounded flex flex-row mt-[17px]">
       <div>
         <div class="max-w-[290px]">
-          <a href="#" class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[19px]">
+          <a :href="url" class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[19px]">
             {{ title }}
           </a>
         </div>
@@ -15,10 +15,10 @@
           class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] sm:max-w-[279px] lg:max-w-[179px]">
           <!-- The reason behind their disappointment is that iPhone users have
           been.. -->
-          {{ content }}
-        </p>
+          <!-- {{truncate(content,18) }} -->
+        </p>N
       </div>
-      <div class="mx-[17px]">
+      <div class="mx-[17px] w-[173px] h-[130px]">
         <img :src="image" alt="battleground" />
       </div>
     </div>
@@ -48,7 +48,17 @@ export default {
     content: String,
     image: String,
     publisher: String,
-    time: String
+    time: String,
+    url: String
+  },
+  filters: {
+    truncate: function (data, num) {
+      reqdString = ''
+      for (let i = 0; i < num; i++) {
+        reqdString += data[i]
+      }
+      return reqdString;
+    }
   }
 };
 </script>
