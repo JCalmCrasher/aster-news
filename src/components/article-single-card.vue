@@ -12,11 +12,9 @@
         </div>
 
         <p
-          class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] sm:max-w-[279px] lg:max-w-[179px]">
-          <!-- The reason behind their disappointment is that iPhone users have
-          been.. -->
-          <!-- {{truncate(content,18) }} -->
-        </p>N
+          class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] sm:max-w-[279px] lg:max-w-[179px] line-clamp-3">
+          {{content}}
+        </p>
       </div>
       <div class="mx-[17px] w-[173px] h-[130px]">
         <img :src="image" alt="battleground" />

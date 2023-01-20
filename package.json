@@ -11,6 +11,7 @@
     "format": "prettier .  --write"
   },
   "dependencies": {
+    "@tailwindcss/line-clamp": "^0.4.2",
     "eslint-config-prettier": "^8.5.0",
     "vite-svg-loader": "^3.6.0",
     "vue": "^3.2.37"
