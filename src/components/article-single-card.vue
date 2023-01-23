@@ -6,7 +6,7 @@
     <div class="rounded flex flex-row mt-[17px]">
       <div>
         <div class="max-w-[290px]">
-          <a :href="url" class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[19px]">
+          <a :href="url" class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[192px] line-clamp-3 sm:line-clamp-3">
             {{ title }}
           </a>
         </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="flex flex-row mt-2 box-border mb-[13px]">
       <div class="flex flex-row text-xs text-black opacity-40">
-        <div class="mr-[19px]">{{ publisher }}</div>
+        <div class="mr-[19px] line-clamp-1">{{ publisher }}</div>
         <div>{{ time }}</div>
       </div>
 

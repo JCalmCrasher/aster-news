@@ -2,7 +2,7 @@
   <the-sidebar />
   <div class="sm:ml-[321px]">
     <header>
-      <TopSearch />
+      <TopSearch @user-Search="userSearch"/>
       <div>
         <TheTopStory />
       </div>
@@ -30,7 +30,7 @@ export default {
 
   data() {
     return {
-      newsList: []
+      newsList: [],
     }
   },
   methods: {
@@ -39,21 +39,21 @@ export default {
       const finalRes = await res.json()
       this.newsList = finalRes.articles
       // console.log(this.newsList.articles[0].title)
-    }
+    },
+    async userSearch(da) {
+      const res = await fetch(`https://newsapi.org/v2/everything?q=`+da+`&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+      const finalRes = await res.json()
+      this.newsList = finalRes.articles
+      // console.log(this.newsList.articles[0].title)
+    
+    },
+   
   },
   mounted() {
     this.getNews()
   }
 
 };
-
-// fetch(`https://newsapi.org/v2/everything?' +
-//           'q=Apple&' +
-//           'from=2023-01-11&' +
-//           'sortBy=popularity&' +
-//           'apiKey=5608ff86dd9f4318a824352dc7121bc5'`)
-//   .then(res => res.json())
-//   .then(data => console.log(res))
 
 </script>
 
