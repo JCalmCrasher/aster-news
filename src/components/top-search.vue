@@ -3,7 +3,7 @@
     <div :class="[this.hamburger? 'bg-white':'bg-home-blue','pt-2 mb-4 lg:pt-[15px] lg:mb-[38px]']">
        <div class="hidden  flex-row items-center justify-between px-2 sm:mr-[34px] sm:flex">
         <div class="flex flex-row">
-            <input type="text" name="" id="searchedContent" placeholder="Search for news..." class="rounded border border-blue pl-[10px] pr-[40px] py-[8px] bg-light-blue outline-none text-xs box-border text-black sm:w-[230px] lg:w-[455px] lg:px-[14px] lg:py-[14px] lg:text-sm  focus:border focus:border-black">
+            <input type="text" name="" v-model="searchedContent" placeholder="Search for news..." class="rounded border border-blue pl-[10px] pr-[40px] py-[8px] bg-light-blue outline-none text-xs box-border text-black sm:w-[230px] lg:w-[455px] lg:px-[14px] lg:py-[14px] lg:text-sm  focus:border focus:border-black">
             <div class="relative flex flex-row items-center">
                 <div class="absolute right-0">
                     <a href="#" v-on:click="userSearch()"> <i class="fa fa-search mx-4 hover:text-sky-blue" aria-hidden="true"></i></a>
@@ -30,8 +30,7 @@
             </div>
         </div>
 <!-- menu -->
-    <Hamburger v-if="hamburger" />
-            
+    <Hamburger v-if="hamburger" @user-search-sm="(n)=>this.$emit('userSearchSm', n)"/>     
     </div>
     </div>
     
@@ -44,7 +43,7 @@ export default {
     data() {
         return {
             hamburger: false,
-            searchText: String
+            searchedContent: ''
         }
     },
     props: {
@@ -53,16 +52,13 @@ export default {
         showMenu(status) {
             this.hamburger = status
         },
-        async userSearch() {
-            let text = document.getElementById('searchedContent').value
-            // console.log(text)
-            this.searchText = text
-            console.log(this.searchText)
-            this.$emit('userSearch', text)
+        userSearch() {
+            // let text = document.getElementById('searchedContent').value
+            this.$emit('userSearch', this.searchedContent)
 
-        }
+        },
     },
-    // emits: ['user-Search']
+    emits: ['userSearch', 'userSearchSm']
 }
 </script>
 <style lang="">

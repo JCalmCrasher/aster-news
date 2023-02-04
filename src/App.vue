@@ -2,7 +2,7 @@
   <the-sidebar />
   <div class="sm:ml-[321px]">
     <header>
-      <TopSearch @user-Search="userSearch"/>
+      <TopSearch @user-Search="userSearch" @user-search-sm="userSearch" />
       <div>
         <TheTopStory />
       </div>
@@ -11,9 +11,11 @@
       <div class="h-[380px] lg:w-[771px] lg:h-auto">
         <ArticleFeatureCard />
       </div>
-      <div class="flex flex-col lg:w-[771px] gap-5 mt-5 lg:flex-row" :key="task.id" v-for="task in newsList">
-        <ArticleSingleCard :title="task.title" :content="task.description"
-          :image="task.urlToImage" :publisher="task.author" :time="task.publishedAt" :url="task.url"/>
+      <div class="grid grid-cols-1 gap-5 mt-5 lg:w-[771px] lg:grid-cols-2">
+        <!--  :key="task.id" v-for="task in newsList" -->
+        <ArticleSingleCard :title="task.title" :content="task.description" :key="task.id" v-for="task in newsList"
+          :image="[task.urlToImage ? task.urlToImage : 'src/img/instagram.png']" :publisher="task.author"
+          :time="task.publishedAt" :url="task.url" />
       </div>
     </main>
   </div>
@@ -25,32 +27,44 @@ import ArticleFeatureCard from "./components/article-feature-card.vue";
 import ArticleSingleCard from "./components/article-single-card.vue";
 import TheTopStory from "./components/the-top-story.vue";
 import TopSearch from "./components/top-search.vue";
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 export default {
   components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch },
 
   data() {
     return {
       newsList: [],
+      defaultImg: 'src/img/instagram.png'
     }
   },
   methods: {
     async getNews() {
-      const res = await fetch(`https://newsapi.org/v2/everything?q=bitcoin&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+      // console.log(import.meta.env.MODE)
+      const res = await fetch(`https://newsapi.org/v2/top-headlines?country=ng&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
       const finalRes = await res.json()
       this.newsList = finalRes.articles
       // console.log(this.newsList.articles[0].title)
     },
     async userSearch(da) {
-      const res = await fetch(`https://newsapi.org/v2/everything?q=`+da+`&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+      const res = await fetch(`https://newsapi.org/v2/everything?q=` + da + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
       const finalRes = await res.json()
       this.newsList = finalRes.articles
       // console.log(this.newsList.articles[0].title)
-    
     },
-   
+    // async userSearched(da) {
+    //   const res = await fetch(`https://newsapi.org/v2/everything?q=` + da + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+    //   const finalRes = await res.json()
+    //   this.newsList = finalRes.articles
+    //   console.log(this.newsList.articles[0].title)
+
+    // }
   },
   mounted() {
     this.getNews()
+    console.log(formatDistanceToNow(
+      new Date('2023-02-03T20:06:46Z'),
+      { addSuffix: true }
+    ))
   }
 
 };
