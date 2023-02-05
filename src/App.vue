@@ -15,7 +15,7 @@
         <!--  :key="task.id" v-for="task in newsList" -->
         <ArticleSingleCard :title="task.title" :content="task.description" :key="task.id" v-for="task in newsList"
           :image="[task.urlToImage ? task.urlToImage : 'src/img/instagram.png']" :publisher="task.author"
-          :time="task.publishedAt" :url="task.url" />
+          :time="this.getDate(task.publishedAt)" :url="task.url" />
       </div>
     </main>
   </div>
@@ -27,7 +27,7 @@ import ArticleFeatureCard from "./components/article-feature-card.vue";
 import ArticleSingleCard from "./components/article-single-card.vue";
 import TheTopStory from "./components/the-top-story.vue";
 import TopSearch from "./components/top-search.vue";
-import formatDistanceToNow from 'date-fns/formatDistanceToNow'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 export default {
   components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch },
 
@@ -43,7 +43,6 @@ export default {
       const res = await fetch(`https://newsapi.org/v2/top-headlines?country=ng&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
       const finalRes = await res.json()
       this.newsList = finalRes.articles
-      // console.log(this.newsList.articles[0].title)
     },
     async userSearch(da) {
       const res = await fetch(`https://newsapi.org/v2/everything?q=` + da + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
@@ -51,20 +50,14 @@ export default {
       this.newsList = finalRes.articles
       // console.log(this.newsList.articles[0].title)
     },
-    // async userSearched(da) {
-    //   const res = await fetch(`https://newsapi.org/v2/everything?q=` + da + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
-    //   const finalRes = await res.json()
-    //   this.newsList = finalRes.articles
-    //   console.log(this.newsList.articles[0].title)
+    getDate(df){
+      const newDate =formatDistanceToNow(new Date(df), { addSuffix: true })
+      return newDate
+    }
 
-    // }
   },
   mounted() {
     this.getNews()
-    console.log(formatDistanceToNow(
-      new Date('2023-02-03T20:06:46Z'),
-      { addSuffix: true }
-    ))
   }
 
 };

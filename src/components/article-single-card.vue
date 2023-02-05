@@ -45,7 +45,8 @@ export default {
     image: String,
     publisher: String,
     time: String,
-    url: String
+    url: String,
+    // formatDistanceToNow
   },
 };
 </script>

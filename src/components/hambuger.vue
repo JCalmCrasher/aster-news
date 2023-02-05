@@ -45,7 +45,6 @@ export default {
     methods: {
         userSearchSm() {
             // let texts = document.getElementById('searchedContentSm').value
-            console.log(this.searchText)
             this.$emit('userSearchSm', this.searchText)
 
         }
