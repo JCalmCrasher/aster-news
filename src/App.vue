@@ -14,7 +14,7 @@
       <div class="grid grid-cols-1 gap-5 mt-5 lg:w-[771px] lg:grid-cols-2">
         <!--  :key="task.id" v-for="task in newsList" -->
         <ArticleSingleCard :title="task.title" :content="task.description" :key="task.id" v-for="task in newsList"
-          :image="[task.urlToImage ? task.urlToImage : 'src/img/instagram.png']" :publisher="task.author"
+          :image="[task.urlToImage ? task.urlToImage : 'src/img/instagram.png']" :publisher="task.source.name"
           :time="this.getDate(task.publishedAt)" :url="task.url" />
       </div>
     </main>

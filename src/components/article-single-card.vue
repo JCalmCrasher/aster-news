@@ -18,13 +18,13 @@
         <img :src="[image ? image : '../img/phone.png']" alt="" class="w-[102px] h-[102px]" />
       </div>
     </div>
-    <div class="flex flex-row flex-wrap mt-2 box-border mb-[13px]">
+    <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px]  mr-[25px]">
       <div class="flex flex-row text-xs text-black opacity-40">
-        <div class="mr-[19px] line-clamp-1">{{ publisher }}</div>
+        <div class="mr-[19px] w-[48px] line-clamp-1">{{ publisher }}</div>
         <div>{{ time }}</div>
       </div>
 
-      <div class="flex flex-row text-xs text-blue-deep ml-[37px]">
+      <div class="flex flex-row text-xs text-blue-deep ml-[37p]">
         <div class="hover:text-sky-blue">
           <i class="fa fa-upload mr-[10px]" aria-hidden="true"></i> <a href="#">Share</a>
         </div>
