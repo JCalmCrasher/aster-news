@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="absolute w-screen h-screen bg-white z-[99] p-3 space-y-3 flex flex-col bottom-0 text-lg sm:hidden">
+        <div class="fixed w-screen h-full top-10 bg-white z-[99] p-3 space-y-3 flex flex-col bottom-0 text-lg sm:hidden">
             <div class="text-black text-sm  flex flex-row items-center justify-end">
                 <i class="fa fa-user-o fa-lg" aria-hidden="true"></i>
                 <h1 class="pl-[17px] block text-sm">My Profile</h1>
