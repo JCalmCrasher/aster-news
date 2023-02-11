@@ -30,7 +30,7 @@
             </div>
         </div>
 <!-- menu -->
-    <Hamburger v-if="hamburger" @user-search-sm="(n)=>this.$emit('userSearchSm', n)"/>     
+    <Hamburger v-if="hamburger" @user-search-sm="(n)=>this.$emit('userSearchSm', n)" @sendHamburgerStatus="(status)=>this.hamburger=status"/>     
     </div>
     </div>
     
@@ -55,7 +55,6 @@ export default {
         userSearch() {
             // let text = document.getElementById('searchedContent').value
             this.$emit('userSearch', this.searchedContent)
-
         },
     },
     emits: ['userSearch', 'userSearchSm']

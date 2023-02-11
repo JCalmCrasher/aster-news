@@ -35,7 +35,7 @@ export default {
     name: "Hambuger",
     data() {
         return {
-            hamburger: false,
+            hamburgerFromHamburger: false,
             searchText: ''
         }
     },
@@ -46,7 +46,7 @@ export default {
         userSearchSm() {
             // let texts = document.getElementById('searchedContentSm').value
             this.$emit('userSearchSm', this.searchText)
-
+            this.$emit('sendHamburgerStatus', this.hamburgerFromHamburger)
         }
     },
 }
