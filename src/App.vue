@@ -4,7 +4,7 @@
     <header>
       <TopSearch @user-Search="userSearch" @user-search-sm="userSearch" />
       <div>
-        <TheTopStory />
+        <TheTopStory @andriodClick='andriod'/>
       </div>
     </header>
     <main>
@@ -53,8 +53,10 @@ export default {
     getDate(df){
       const newDate =formatDistanceToNow(new Date(df), { addSuffix: true })
       return newDate
+    },
+    andriod(text){
+      console.log(text)
     }
-
   },
   mounted() {
     this.getNews()
