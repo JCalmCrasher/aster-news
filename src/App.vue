@@ -2,9 +2,9 @@
   <the-sidebar />
   <div class="sm:ml-[321px]">
     <header>
-      <TopSearch @user-Search="userSearch" @user-search-sm="userSearch" />
+      <TopSearch @user-search="userSearch" @user-search-sm="userSearch" />
       <div>
-        <TheTopStory @andriodClick='andriod'/>
+        <TheTopStory @top-story-button='topStory'/>
       </div>
     </header>
     <main>
@@ -54,8 +54,10 @@ export default {
       const newDate =formatDistanceToNow(new Date(df), { addSuffix: true })
       return newDate
     },
-    andriod(text){
-      console.log(text)
+    async topStory(story){
+      const res = await fetch(`https://newsapi.org/v2/everything?q=` + story + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+      const finalRes = await res.json()
+      this.newsList = finalRes.articles
     }
   },
   mounted() {

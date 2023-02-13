@@ -26,13 +26,13 @@ export default {
 
     data() {
         return {
-            buttons: ['Andriod', 'Cricket', 'Iphone', 'Google', 'Games', 'Health']
+            buttons: ['Cricket', 'Iphone', 'Google', 'Games', 'Health','Football']
         }
     },
 
     methods: {
         getButtonText(button) {
-            console.log(button)
+            this.$emit('topStoryButton', button)
         }
     }
 }
