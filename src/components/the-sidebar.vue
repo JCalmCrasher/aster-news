@@ -15,7 +15,7 @@
               menu.isActive
                 ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
                 : '',
-            ]" :href="menu.link">
+            ]" :href="menu.link" @click="selectedOption(menu)">
               <component :key="index" :is="menu.icon"></component>
               {{ menu.name }}
             </a>
@@ -61,62 +61,68 @@ export default {
         {
           name: 'Top Stories',
           icon: markRaw(HomeIcon),
-          link: '/',
+          link: '#',
           isActive: true
         },
         {
           name: 'Around the World',
           icon: markRaw(GlobeIcon),
-          link: '/',
+          link: '#',
           isActive: false
         },
         {
-          name: 'Health',
+          name: 'Technology',
           icon: markRaw(HealthIcon),
-          link: '/',
+          link: '#',
           isActive: false
         },
         {
-          name: 'Covid 19',
+          name: 'Crypto',
           icon: markRaw(Covid19Icon),
-          link: '/',
+          link: '#',
           isActive: false,
           isSingle: true
         },
         {
           name: 'Entertainment',
           icon: markRaw(EntertainmentIcon),
-          link: '/',
+          link: '#',
           isActive: false,
         },
         {
           name: 'Sports',
           icon: markRaw(SportsIcon),
-          link: '/',
+          link: '#',
           isActive: false,
         },
         {
           name: 'Discussion',
           icon: markRaw(MessageIcon),
-          link: '/',
+          link: '#',
           isActive: false
         },
         {
-          name: 'Notification',
+          name: 'Business',
           icon: markRaw(NotificationIcon),
-          link: '/',
+          link: '#',
           isActive: false
         },
-        {
-          name: 'News Feed Settings',
-          icon: markRaw(SettingsIcon),
-          link: '/',
-          isActive: false
-        }
+
       ],
       menuClass: "text-sm pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
     }
   },
+  methods: {
+    selectedOption(option) {
+      for (let i = 0; i < this.menus.length; i++) {
+        // const element = array[i];
+        this.menus[i].isActive = false;
+        // console.log(this.menus[i].isActive)
+      }
+      option.isActive = true
+      this.$emit('userSelectedOption', option.name)
+    }
+  }
 };
 </script>
 <style lang=""></style>

@@ -1,5 +1,5 @@
 <template class="box-border">
-  <the-sidebar />
+  <the-sidebar @user-selected-option="sideBar"/>
   <div class="sm:ml-[321px]">
     <header>
       <TopSearch @user-search="userSearch" @user-search-sm="userSearch" />
@@ -56,6 +56,11 @@ export default {
     },
     async topStory(story) {
       const res = await fetch(`https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&&q=` + story + `&language=en`)
+      const finalRes = await res.json()
+      this.newsList = finalRes.results
+    },
+    async sideBar(option) {
+      const res = await fetch(`https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&&q=` + option + `&language=en`)
       const finalRes = await res.json()
       this.newsList = finalRes.results
     }

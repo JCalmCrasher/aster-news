@@ -37,16 +37,6 @@ export default {
     methods: {
         getButtonText(i) {
             const clickedButtonIndex = this.buttons.findIndex((b, index) => index === i);
-
-            // for (let i = 0; i < button.length; i++) {
-            //     if (i === button.findIndex(button => p.valButton === 32)) {
-            //         button(i).valButton = true;
-            //         console.log('s')
-            //     } else {
-            //         console.log('ss')
-            //     }
-            // }
-
             for (let i = 0; i < this.buttons.length; i++) {
                 if (clickedButtonIndex === i) {
                     this.selectedIndex = i
