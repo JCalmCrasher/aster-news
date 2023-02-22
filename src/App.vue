@@ -4,7 +4,7 @@
     <header>
       <TopSearch @user-search="userSearch" @user-search-sm="userSearch" />
       <div>
-        <TheTopStory @top-story-button='topStory'/>
+        <TheTopStory @top-story-button='topStory' />
       </div>
     </header>
     <main>
@@ -14,8 +14,8 @@
       <div class="grid grid-cols-1 gap-5 mt-5 lg:w-[771px] lg:grid-cols-2">
         <!--  :key="task.id" v-for="task in newsList" -->
         <ArticleSingleCard :title="task.title" :content="task.description" :key="task.id" v-for="task in newsList"
-          :image="[task.urlToImage ? task.urlToImage : 'src/img/instagram.png']" :publisher="task.source.name"
-          :time="this.getDate(task.publishedAt)" :url="task.url" />
+          :image="[task.image_url ? task.image_url : 'src/img/default.jpg']" :publisher="task.source_id"
+          :time="this.getDate(task.pubDate)" :url="task.link" />
       </div>
     </main>
   </div>
@@ -39,25 +39,25 @@ export default {
   },
   methods: {
     async getNews() {
-      // console.log(import.meta.env.MODE)
-      const res = await fetch(`https://newsapi.org/v2/top-headlines?country=ng&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+      // console.log(import.meta.env.MODE) https://newsapi.org/v2/top-headlines?country=ng&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5` ZreybJPTEOHeGbfxvHK9nz5304Bwdf_GdZ3P8zTefXc curl -Xcurl -XGET 'https://api.newscatcherapi.com/v2/search?q=Tesla' ''  https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390
+      const res = await fetch('https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&country=ng')
       const finalRes = await res.json()
-      this.newsList = finalRes.articles
+      this.newsList = finalRes.results
+      // console.log(this.newsList[0])
     },
     async userSearch(da) {
-      const res = await fetch(`https://newsapi.org/v2/everything?q=` + da + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+      const res = await fetch(`https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&&q=` + da + `&language=en`)
       const finalRes = await res.json()
-      this.newsList = finalRes.articles
-      // console.log(this.newsList.articles[0].title)
+      this.newsList = finalRes.results
     },
-    getDate(df){
-      const newDate =formatDistanceToNow(new Date(df), { addSuffix: true })
+    getDate(df) {
+      const newDate = formatDistanceToNow(new Date(df), { addSuffix: true })
       return newDate
     },
-    async topStory(story){
-      const res = await fetch(`https://newsapi.org/v2/everything?q=` + story + `&sortBy=publishedAt&apiKey=5608ff86dd9f4318a824352dc7121bc5`)
+    async topStory(story) {
+      const res = await fetch(`https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&&q=` + story + `&language=en`)
       const finalRes = await res.json()
-      this.newsList = finalRes.articles
+      this.newsList = finalRes.results
     }
   },
   mounted() {

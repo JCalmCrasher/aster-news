@@ -4,7 +4,7 @@
       <div>
         <div class="max-w-[290px]">
           <a :href="url"
-            class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[192px] line-clamp-3 sm:line-clamp-3">
+            class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[192px] line-clamp-3 sm:line-clamp-3" target="_blank">
             {{ title }}
           </a>
         </div>

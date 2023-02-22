@@ -9,26 +9,17 @@
       <div class="mt-7">
         <ul class="flex flex-col gap-1">
           <li v-for="(menu, index) in menus" :key="index">
-            <hr
-              v-if="menu.isSingle"
-              class="border-[0.2px] border-[#becbd1] opacity-60"
-            />
-            <a
-              :class="[
-                menuClass,
-                menu.isActive
-                  ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
-                  : '',
-              ]"
-              :href="menu.link"
-            >
+            <hr v-if="menu.isSingle" class="border-[0.2px] border-[#becbd1] opacity-60" />
+            <a :class="[
+              menuClass,
+              menu.isActive
+                ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
+                : '',
+            ]" :href="menu.link">
               <component :key="index" :is="menu.icon"></component>
               {{ menu.name }}
             </a>
-            <hr
-              v-if="menu.isSingle"
-              class="border-[0.2px] border-[#becbd1] opacity-60"
-            />
+            <hr v-if="menu.isSingle" class="border-[0.2px] border-[#becbd1] opacity-60" />
           </li>
         </ul>
       </div>
@@ -59,70 +50,71 @@ export default {
     HealthIcon,
     Covid19Icon,
     EntertainmentIcon,
-SportsIcon,
-MessageIcon,
-NotificationIcon,
-SettingsIcon },
+    SportsIcon,
+    MessageIcon,
+    NotificationIcon,
+    SettingsIcon
+  },
   data() {
     return {
-      menus:[
+      menus: [
         {
-          name:'Top Stories',
-          icon:markRaw(HomeIcon),
-          link:'/',
-          isActive:true
+          name: 'Top Stories',
+          icon: markRaw(HomeIcon),
+          link: '/',
+          isActive: true
         },
         {
-          name:'Around the World',
+          name: 'Around the World',
           icon: markRaw(GlobeIcon),
-          link:'/',
-          isActive:false
+          link: '/',
+          isActive: false
         },
         {
-          name:'Health',
+          name: 'Health',
           icon: markRaw(HealthIcon),
-          link:'/',
-          isActive:false
+          link: '/',
+          isActive: false
         },
         {
-          name:'Covid 19',
+          name: 'Covid 19',
           icon: markRaw(Covid19Icon),
-          link:'/',
-          isActive:false,
-          isSingle:true
+          link: '/',
+          isActive: false,
+          isSingle: true
         },
         {
-          name:'Entertainment',
+          name: 'Entertainment',
           icon: markRaw(EntertainmentIcon),
-          link:'/',
-          isActive:false,
+          link: '/',
+          isActive: false,
         },
         {
-          name:'Sports',
+          name: 'Sports',
           icon: markRaw(SportsIcon),
-          link:'/',
-          isActive:false,
+          link: '/',
+          isActive: false,
         },
         {
-          name:'Discussion',
+          name: 'Discussion',
           icon: markRaw(MessageIcon),
-          link:'/',
-          isActive:false
+          link: '/',
+          isActive: false
         },
         {
-          name:'Notification',
+          name: 'Notification',
           icon: markRaw(NotificationIcon),
-          link:'/',
-          isActive:false
+          link: '/',
+          isActive: false
         },
         {
-          name:'News Feed Settings',
+          name: 'News Feed Settings',
           icon: markRaw(SettingsIcon),
-          link:'/',
-          isActive:false
+          link: '/',
+          isActive: false
         }
       ],
-       menuClass:"text-sm pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
+      menuClass: "text-sm pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
     }
   },
 };

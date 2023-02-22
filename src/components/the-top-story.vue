@@ -5,8 +5,8 @@
         </div>
 
         <div class="mx-4 mb-6 grid grid-cols-3 gap-3 sm:mx-0 lg:flex lg:flex-row lg:space-x-[10px]">
-            <button class="btn-regular bg-sky-blue text-white">All</button>
-            <button class="btn-regular" v-for="button in buttons" @click="getButtonText(button)">{{ button }}</button>
+            <!-- <button class="btn-regular bg-sky-blue text-white">All</button> -->
+            <button class="btn-regular" v-for="(button, i) in buttons" @click="getButtonText(i)" :class="selectedIndex === i ? 'btn-regular bg-sky-blue text-white':''">{{ button.valButton }}</button>
 
             <div class="flex flex-row items-center">
             <i class="fa fa-ellipsis-h fa-lg self-center ml-[22px] block" aria-hidden="true"></i>
@@ -20,16 +20,45 @@ export default {
 
     data() {
         return {
-            buttons: ['Cricket', 'Iphone', 'Google', 'Games', 'Health','Football']
+            // buttons: ['Cricket', 'Iphone', 'Google', 'Games', 'Health', 'Football']
+            buttons: [
+                { 'valButton': 'All' },
+                { 'valButton': 'Cricket' },
+                { 'valButton': 'Iphone' },
+                { 'valButton': 'Google' },
+                { 'valButton': 'Games' },
+                { 'valButton': 'Health' },
+                { 'valButton': 'Football' }
+            ],
+            selectedIndex: 0
         }
     },
 
     methods: {
-        getButtonText(button) {
-            this.$emit('topStoryButton', button)
-            // button.innerHtml.
+        getButtonText(i) {
+            const clickedButtonIndex = this.buttons.findIndex((b, index) => index === i);
+
+            // for (let i = 0; i < button.length; i++) {
+            //     if (i === button.findIndex(button => p.valButton === 32)) {
+            //         button(i).valButton = true;
+            //         console.log('s')
+            //     } else {
+            //         console.log('ss')
+            //     }
+            // }
+
+            for (let i = 0; i < this.buttons.length; i++) {
+                if (clickedButtonIndex === i) {
+                    this.selectedIndex = i
+                    this.$emit('topStoryButton', this.buttons[i].valButton)
+
+                    break;
+
+                }
+            }
         }
     }
+
 }
 </script>
 <style lang="">
