@@ -3,7 +3,7 @@
     <div class="py-5">
       <div class="flex gap-4 items-center px-[30px]">
         <LogoSVG />
-
+        <i class="fa-solid fa-circle-play"></i>
         <span class="font-bold text-lg text-blue-deep">Aster News</span>
       </div>
       <div class="mt-7">
@@ -15,8 +15,8 @@
               menu.isActive
                 ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
                 : '',
-            ]" :href="menu.link" @click="selectedOption(menu)">
-              <component :key="index" :is="menu.icon"></component>
+            ,]" :href="menu.link" @click="selectedOption(menu)">
+              <component :key="index" :class="menu.icon"></component>
               {{ menu.name }}
             </a>
             <hr v-if="menu.isSingle" class="border-[0.2px] border-[#becbd1] opacity-60" />
@@ -60,50 +60,50 @@ export default {
       menus: [
         {
           name: 'Top Stories',
-          icon: markRaw(HomeIcon),
+          icon: 'fa fa-newspaper-o fa-lg',
           link: '#',
           isActive: true
         },
         {
           name: 'Around the World',
-          icon: markRaw(GlobeIcon),
+          icon: 'fa fa-globe fa-lg',
           link: '#',
           isActive: false
         },
         {
           name: 'Technology',
-          icon: markRaw(HealthIcon),
+          icon: 'fa fa-microchip fa-lg',
           link: '#',
           isActive: false
         },
         {
           name: 'Crypto',
-          icon: markRaw(Covid19Icon),
+          icon: 'fa fa-money fa-lg',
           link: '#',
           isActive: false,
           isSingle: true
         },
         {
           name: 'Entertainment',
-          icon: markRaw(EntertainmentIcon),
+          icon: 'fa fa-play-circle-o fa-lg',
           link: '#',
           isActive: false,
         },
         {
           name: 'Sports',
-          icon: markRaw(SportsIcon),
+          icon: 'fa fa-futbol-o fa-lg',
           link: '#',
           isActive: false,
         },
         {
           name: 'Discussion',
-          icon: markRaw(MessageIcon),
+          icon: 'fa fa-comments-o fa-lg',
           link: '#',
           isActive: false
         },
         {
           name: 'Business',
-          icon: markRaw(NotificationIcon),
+          icon: 'fa fa-handshake-o fa-lg',
           link: '#',
           isActive: false
         },

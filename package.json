@@ -14,8 +14,11 @@
     "@tailwindcss/line-clamp": "^0.4.2",
     "date-fns": "^2.29.3",
     "eslint-config-prettier": "^8.5.0",
+    "skeleton-loader-vue": "^1.0.10",
     "vite-svg-loader": "^3.6.0",
-    "vue": "^3.2.37"
+    "vue": "^3.2.37",
+    "vue-loading-skeleton": "^1.1.9",
+    "vue-skeletor": "^1.0.6"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^3.1.0",
