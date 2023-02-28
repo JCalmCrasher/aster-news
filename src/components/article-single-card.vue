@@ -20,7 +20,7 @@
     </div>
     <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px]  mr-[25px]">
       <div class="flex flex-row text-xs text-black opacity-40">
-        <div class="mr-[19px] w-[48px] line-clamp-1">{{ publisher }}</div>
+        <div class="mr-[19px] w-[48px] overflow-hidden text-ellipsis whitespace-nowrap">{{ publisher }}</div>
         <div>{{ time }}</div>
       </div>
 
