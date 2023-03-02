@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white max-h-[191px] pl-[23px]">
+  <div class="bg-white max-h-[191px] px-[20px]">
     <div class="rounded flex flex-row mt-[17px]">
       <div>
         <div class="max-w-[290px]">
@@ -18,7 +18,7 @@
         <img :src="[image ? image : '../img/phone.png']" alt="" class="w-[102px] h-[102px]" />
       </div>
     </div>
-    <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px]  mr-[25px]">
+    <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px] ">
       <div class="flex flex-row text-xs text-black opacity-40">
         <div class="mr-[19px] w-[48px] overflow-hidden text-ellipsis whitespace-nowrap">{{ publisher }}</div>
         <div>{{ time }}</div>

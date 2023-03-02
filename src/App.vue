@@ -8,11 +8,16 @@
       </div>
     </header>
     <main>
-      <div class="h-[380px] lg:w-[771px] lg:h-auto">
-        <ArticleFeatureCard />
+      <div class="grid grid-cols-1 h-[380px] lg:w-[771px] lg:h-auto gap-5">
+        <div v-if="singleIsLoading">
+          <SingleSkeleton/>
+        </div>
+        <div v-else>
+          <ArticleFeatureCard :title=this.singleNews.title :url="this.singleNews.link" :content="this.singleNews.content"
+            :publisher="this.singleNews.source_id" :time="this.getDate(this.singleNews.pubDate)"
+            :image="[this.singleNews.image_url ? this.singleNews.image_url : 'src/img/default.jpg']" /> 
+        </div>
       </div>
-      <!-- <Suspense>
-        <template #default> -->
       <div>
         <div v-if="isLoading" class="grid grid-cols-1 gap-5 mt-5 lg:w-[771px] lg:grid-cols-2">
           <Skeleton v-for="i in 6" />
@@ -35,20 +40,30 @@ import TheTopStory from "./components/the-top-story.vue";
 import TopSearch from "./components/top-search.vue";
 import Skeleton from "./components/skeleton.vue";
 import formatDistanceToNow from 'date-fns/formatDistanceToNow';
-import { Suspense } from 'vue';
+import SingleSkeleton from "./components/single-skeleton.vue";
 
 export default {
-  components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch, Skeleton, Suspense },
+  components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch, Skeleton, SingleSkeleton},
 
   data() {
     return {
       newsList: [],
+      singleNews: [],
       defaultImg: 'src/img/instagram.png',
-      isLoading: false
+      isLoading: false,
+      singleIsLoading:false,
     }
   },
   methods: {
 
+    async getSingleNews() {
+      this.singleIsLoading = true
+      const res = await fetch('https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&country=us')
+      const finalRes = await res.json()
+      this.singleNews = finalRes.results[0]
+      this.singleIsLoading = false
+      console.log(this.singleNews.pubDate)
+    },
     async getNews() {
       this.isLoading = true
       const res = await fetch('https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&country=ng')
@@ -63,9 +78,11 @@ export default {
       this.newsList = finalRes.results
       this.isLoading = false
     },
-    getDate(df) {
-      const newDate = formatDistanceToNow(new Date(df), { addSuffix: true })
-      return newDate
+    getDate(theDate) {
+      if (theDate) {
+        let newDate = formatDistanceToNow(new Date(theDate), { addSuffix: true })
+        return newDate
+      }
     },
     async topStory(story) {
       this.isLoading = true
@@ -84,6 +101,7 @@ export default {
   },
   mounted() {
     this.getNews()
+    this.getSingleNews()
   }
 
 };
