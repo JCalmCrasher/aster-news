@@ -3,32 +3,23 @@
     <div class="py-5">
       <div class="flex gap-4 items-center px-[30px]">
         <LogoSVG />
-
+        <i class="fa-solid fa-circle-play"></i>
         <span class="font-bold text-lg text-blue-deep">Aster News</span>
       </div>
       <div class="mt-7">
         <ul class="flex flex-col gap-1">
           <li v-for="(menu, index) in menus" :key="index">
-            <hr
-              v-if="menu.isSingle"
-              class="border-[0.2px] border-[#becbd1] opacity-60"
-            />
-            <a
-              :class="[
-                menuClass,
-                menu.isActive
-                  ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
-                  : '',
-              ]"
-              :href="menu.link"
-            >
-              <component :key="index" :is="menu.icon"></component>
+            <hr v-if="menu.isSingle" class="border-[0.2px] border-[#becbd1] opacity-60" />
+            <a :class="[
+              menuClass,
+              menu.isActive
+                ? 'bg-light-blue text-sky-blue font-bold rounded-r-[37px]'
+                : '',
+            ,]" :href="menu.link" @click="selectedOption(menu)">
+              <component :key="index" :class="menu.icon"></component>
               {{ menu.name }}
             </a>
-            <hr
-              v-if="menu.isSingle"
-              class="border-[0.2px] border-[#becbd1] opacity-60"
-            />
+            <hr v-if="menu.isSingle" class="border-[0.2px] border-[#becbd1] opacity-60" />
           </li>
         </ul>
       </div>
@@ -59,72 +50,79 @@ export default {
     HealthIcon,
     Covid19Icon,
     EntertainmentIcon,
-SportsIcon,
-MessageIcon,
-NotificationIcon,
-SettingsIcon },
+    SportsIcon,
+    MessageIcon,
+    NotificationIcon,
+    SettingsIcon
+  },
   data() {
     return {
-      menus:[
+      menus: [
         {
-          name:'Top Stories',
-          icon:markRaw(HomeIcon),
-          link:'/',
-          isActive:true
+          name: 'Top Stories',
+          icon: 'fa fa-newspaper-o fa-lg',
+          link: '#',
+          isActive: true
         },
         {
-          name:'Around the World',
-          icon: markRaw(GlobeIcon),
-          link:'/',
-          isActive:false
+          name: 'Around the World',
+          icon: 'fa fa-globe fa-lg',
+          link: '#',
+          isActive: false
         },
         {
-          name:'Health',
-          icon: markRaw(HealthIcon),
-          link:'/',
-          isActive:false
+          name: 'Technology',
+          icon: 'fa fa-microchip fa-lg',
+          link: '#',
+          isActive: false
         },
         {
-          name:'Covid 19',
-          icon: markRaw(Covid19Icon),
-          link:'/',
-          isActive:false,
-          isSingle:true
+          name: 'Crypto',
+          icon: 'fa fa-money fa-lg',
+          link: '#',
+          isActive: false,
+          isSingle: true
         },
         {
-          name:'Entertainment',
-          icon: markRaw(EntertainmentIcon),
-          link:'/',
-          isActive:false,
+          name: 'Entertainment',
+          icon: 'fa fa-play-circle-o fa-lg',
+          link: '#',
+          isActive: false,
         },
         {
-          name:'Sports',
-          icon: markRaw(SportsIcon),
-          link:'/',
-          isActive:false,
+          name: 'Sports',
+          icon: 'fa fa-futbol-o fa-lg',
+          link: '#',
+          isActive: false,
         },
         {
-          name:'Discussion',
-          icon: markRaw(MessageIcon),
-          link:'/',
-          isActive:false
+          name: 'Discussion',
+          icon: 'fa fa-comments-o fa-lg',
+          link: '#',
+          isActive: false
         },
         {
-          name:'Notification',
-          icon: markRaw(NotificationIcon),
-          link:'/',
-          isActive:false
+          name: 'Business',
+          icon: 'fa fa-handshake-o fa-lg',
+          link: '#',
+          isActive: false
         },
-        {
-          name:'News Feed Settings',
-          icon: markRaw(SettingsIcon),
-          link:'/',
-          isActive:false
-        }
+
       ],
-       menuClass:"text-sm pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
+      menuClass: "text-sm pl-[30px] flex items-center gap-[22px] w-full hover:bg-light-blue cursor-pointer py-4",
     }
   },
+  methods: {
+    selectedOption(option) {
+      for (let i = 0; i < this.menus.length; i++) {
+        // const element = array[i];
+        this.menus[i].isActive = false;
+        // console.log(this.menus[i].isActive)
+      }
+      option.isActive = true
+      this.$emit('userSelectedOption', option.name)
+    }
+  }
 };
 </script>
 <style lang=""></style>

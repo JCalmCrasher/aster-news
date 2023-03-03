@@ -1,10 +1,10 @@
 <template>
-  <div class="bg-white max-h-[191px] pl-[23px]">
+  <div class="bg-white max-h-[191px] px-[20px]">
     <div class="rounded flex flex-row mt-[17px]">
       <div>
         <div class="max-w-[290px]">
           <a :href="url"
-            class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[192px] line-clamp-3 sm:line-clamp-3">
+            class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[192px] line-clamp-3 sm:line-clamp-3" target="_blank">
             {{ title }}
           </a>
         </div>
@@ -18,9 +18,9 @@
         <img :src="[image ? image : '../img/phone.png']" alt="" class="w-[102px] h-[102px]" />
       </div>
     </div>
-    <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px]  mr-[25px]">
+    <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px] ">
       <div class="flex flex-row text-xs text-black opacity-40">
-        <div class="mr-[19px] w-[48px] line-clamp-1">{{ publisher }}</div>
+        <div class="mr-[19px] w-[48px] overflow-hidden text-ellipsis whitespace-nowrap">{{ publisher }}</div>
         <div>{{ time }}</div>
       </div>
 
