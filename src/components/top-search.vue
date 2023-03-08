@@ -25,8 +25,10 @@
 
         <div class="relative h-12">
             <div class="w-full absolute flex flex-row justify-end px-4 sm:hidden">
-                    <i class="fa fa-times fa-lg" aria-hidden="true" v-if="hamburger" @click="showMenu(false)"></i>
-                    <i class="fa fa-bars fa-lg" aria-hidden="true" v-else @click="showMenu(true)"></i>
+                    <!-- <i class="fa fa-times fa-lg" aria-hidden="true" v-if="hamburger" @click="showMenu(false)"></i> -->
+                    <!-- <i class="fa fa-bars fa-lg" aria-hidden="true" v-else @click="showMenu(true)"></i> -->
+                    <i class="fa fa-bars fa-lg" aria-hidden="true" @click="showMenu(true)"></i>
+
             </div>
         </div>
 <!-- menu -->

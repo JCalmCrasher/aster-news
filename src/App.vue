@@ -8,14 +8,15 @@
       </div>
     </header>
     <main>
-      <div class="grid grid-cols-1 h-[380px] lg:w-[771px] lg:h-auto gap-5">
+      <div v-if="hideFeaturedCard" class="grid grid-cols-1 h-[380px] lg:w-[771px] lg:h-auto gap-5">
         <div v-if="singleIsLoading">
-          <SingleSkeleton/>
+          <SingleSkeleton />
         </div>
         <div v-else>
-          <ArticleFeatureCard :title=this.singleNews.title :url="this.singleNews.link" :content="this.singleNews.content"
-            :publisher="this.singleNews.source_id" :time="this.getDate(this.singleNews.pubDate)"
-            :image="[this.singleNews.image_url ? this.singleNews.image_url : 'src/img/default.jpg']" /> 
+          <ArticleFeatureCard :title=this.singleNews.title :url="this.singleNews.link"
+            :content="this.singleNews.content" :publisher="this.singleNews.source_id"
+            :time="this.getDate(this.singleNews.pubDate)"
+            :image="this.singleNews.image_url" />
         </div>
       </div>
       <div>
@@ -24,7 +25,7 @@
         </div>
         <div v-else class="grid grid-cols-1 gap-5 mt-5 lg:w-[771px] lg:grid-cols-2">
           <ArticleSingleCard :title="task.title" :content="task.description" :key="task.id" v-for="task in newsList"
-            :image="[task.image_url ? task.image_url : 'src/img/default.jpg']" :publisher="task.source_id"
+            :image="task.image_url" :publisher="task.source_id"
             :time="this.getDate(task.pubDate)" :url="task.link" />
         </div>
       </div>
@@ -43,7 +44,7 @@ import formatDistanceToNow from 'date-fns/formatDistanceToNow';
 import SingleSkeleton from "./components/single-skeleton.vue";
 
 export default {
-  components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch, Skeleton, SingleSkeleton},
+  components: { TheSidebar, ArticleFeatureCard, ArticleSingleCard, TheTopStory, TopSearch, Skeleton, SingleSkeleton },
 
   data() {
     return {
@@ -51,7 +52,8 @@ export default {
       singleNews: [],
       defaultImg: 'src/img/instagram.png',
       isLoading: false,
-      singleIsLoading:false,
+      singleIsLoading: false,
+      hideFeaturedCard: true,
     }
   },
   methods: {
@@ -62,7 +64,7 @@ export default {
       const finalRes = await res.json()
       this.singleNews = finalRes.results[0]
       this.singleIsLoading = false
-      console.log(this.singleNews.pubDate)
+      this.hideFeaturedCard = true
     },
     async getNews() {
       this.isLoading = true
@@ -70,9 +72,11 @@ export default {
       const finalRes = await res.json()
       this.newsList = finalRes.results
       this.isLoading = false
+      this.hideFeaturedCard = false
     },
     async userSearch(da) {
       this.isLoading = true
+      this.hideFeaturedCard = false
       const res = await fetch(`https://newsdata.io/api/1/news?apikey=pub_17613bded592050c4e04f55e567d888723390&&q=` + da + `&language=en`)
       const finalRes = await res.json()
       this.newsList = finalRes.results
@@ -90,6 +94,11 @@ export default {
       const finalRes = await res.json()
       this.newsList = finalRes.results
       this.isLoading = false
+      if (story=='All') {
+        this.hideFeaturedCard = true
+      }else{
+        this.hideFeaturedCard = false
+      }
     },
     async sideBar(option) {
       this.isLoading = true
@@ -97,6 +106,12 @@ export default {
       const finalRes = await res.json()
       this.newsList = finalRes.results
       this.isLoading = false
+      if (option=='Around the World'||option=='Top Stories') {
+        this.hideFeaturedCard = true 
+      }else{
+        this.hideFeaturedCard = false
+      }
+      console.log(option)
     }
   },
   mounted() {
@@ -111,3 +126,4 @@ export default {
 <style lang="css">
 
 </style>
+<!-- 3508-0178-52850 -->
