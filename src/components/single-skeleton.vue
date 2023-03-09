@@ -12,7 +12,7 @@
 
             <div class="max-w-[360px] sm:max-w-[800px] lg:max-w-[530px]">
                 <p class="font-normal text-sm text-black opacity-[0.6] max-w-[360px] max-h-[94px] min-h-[64p] line-clamp-4 sm:max-w-[800px] lg:max-w-[520px] lg:line-clamp-3">
-                    <Skeletor height="80" width="405" />
+                    <Skeletor height="80" width="505" />
                 </p>
             </div>
 

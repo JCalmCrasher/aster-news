@@ -4,23 +4,25 @@
       <div>
         <div class="max-w-[290px]">
           <a :href="url"
-            class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[192px] line-clamp-3 sm:line-clamp-3" target="_blank">
+            class="text-base font-medium mb-[10px] text-black  hover:text-sky-blue sm:max-w-[330px] line-clamp-3 sm:line-clamp-3"
+            target="_blank" :title="title">
             {{ title }}
           </a>
         </div>
 
         <p
-          class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] sm:max-w-[279px] lg:max-w-[179px] line-clamp-3">
+          class="font-normal text-sm text-black opacity-[0.6] max-w-[179px] max-h-[64px] min-h-[64px] sm:max-w-[330px] lg:max-w-[220px] line-clamp-3 container">
           {{ content }}
         </p>
       </div>
-      <div class="mx-[17px] ">
-        <img :src="[image ? image : '../img/phone.png']" alt="" class="w-[102px] h-[102px]" />
+      <div class="ml-[19px] ">
+        <img :src="[image ? image : this.fallBack]" alt="" class="w-[102px] h-[102px] object-cover"/>
       </div>
     </div>
     <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px] ">
       <div class="flex flex-row text-xs text-black opacity-40">
-        <div class="mr-[19px] w-[48px] overflow-hidden text-ellipsis whitespace-nowrap">{{ publisher }}</div>
+        <div class="mr-[19px] w-[48px] overflow-hidden text-ellipsis whitespace-nowrap" :title="publisher">{{ publisher
+        }}</div>
         <div>{{ time }}</div>
       </div>
 
@@ -47,6 +49,11 @@ export default {
     time: String,
     url: String,
     // formatDistanceToNow
+  },
+  data(){
+    return{
+      fallBack: 'src/img/default.jpg'
+    }
   },
 };
 </script>
