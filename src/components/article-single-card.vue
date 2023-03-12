@@ -16,7 +16,7 @@
         </p>
       </div>
       <div class="ml-[19px] ">
-        <img :src="[image ? image : this.fallBack]" alt="" class="w-[102px] h-[102px] object-cover"/>
+        <img :src="image" @error="setAltImage" alt="news icon" class="w-[102px] h-[102px] object-cover" />
       </div>
     </div>
     <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px] ">
@@ -48,11 +48,16 @@ export default {
     publisher: String,
     time: String,
     url: String,
-    // formatDistanceToNow
+    defaultImage : String
   },
-  data(){
-    return{
+  data() {
+    return {
       fallBack: 'src/img/default.jpg'
+    }
+  },
+  methods: {
+    setAltImage(event) {
+      event.target.src = this.fallBack
     }
   },
 };

@@ -37,7 +37,7 @@
     </div>
     
 </template>
-<script>
+<script lang="js">
 import Hamburger from "./hambuger.vue"
 export default {
     name: "TopSearch",
