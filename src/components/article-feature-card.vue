@@ -8,7 +8,7 @@
       </a>
 
       <div class="flex flex-row justify-center my-[17px] lg:hidden">
-        <img :src="image" @error="setAltImage" alt="news icon" class="w-[173px] h-[130px] object-contain" />
+        <img :src="image || fallBack" @error="setAltImage" alt="news icon" class="w-[173px] h-[130px] object-contain" />
       </div>
 
       <div class="max-w-[360px] sm:max-w-[800px] lg:max-w-[530px]">
