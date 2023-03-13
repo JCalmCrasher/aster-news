@@ -6,7 +6,7 @@
 
         <div class="mx-4 mb-6 grid grid-cols-3 gap-3 sm:mx-0 lg:flex lg:flex-row lg:space-x-[10px]">
             <!-- <button class="btn-regular bg-sky-blue text-white">All</button> -->
-            <button class="btn-regular" v-for="(button, i) in buttons" @click="getButtonText(i)" :class="selectedIndex === i ? 'btn-regular bg-sky-blue text-white':''">{{ button.valButton }}</button>
+            <a class="btn-regular text-center cursor-pointer" v-for="(button, i) in buttons" @click="getButtonText(i)" :class="selectedIndex === i ? 'btn-regular bg-sky-blue text-white':''">{{ button.valButton }}</a>
 
             <div class="flex flex-row items-center">
             <i class="fa fa-ellipsis-h fa-lg self-center ml-[22px] block" aria-hidden="true"></i>

@@ -8,7 +8,7 @@
       </a>
 
       <div class="flex flex-row justify-center my-[17px] lg:hidden">
-        <img :src="[image ? image : this.fallBack]" class="w-[173px] h-[130px] object-contain" />
+        <img :src="image" @error="setAltImage" alt="news icon" class="w-[173px] h-[130px] object-contain" />
       </div>
 
       <div class="max-w-[360px] sm:max-w-[800px] lg:max-w-[530px]">
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="ml-[30px] my-[17px] hidden lg:block">
-      <img :src="[image ? image : this.fallBack]" alt="image" class="w-[173px] h-[130px] object-cover" />
+      <img :src="image" @error="setAltImage" alt="news icon" class="w-[173px] h-[130px] object-cover" />
     </div>
   </div>
 </template>
@@ -53,10 +53,15 @@ export default {
     time: String,
     url: String,
   },
-  data(){
-    return{
+  data() {
+    return {
       fallBack: 'src/img/default.jpg'
     }
-  }
+  },
+  methods: {
+    setAltImage(event) {
+      event.target.src = this.fallBack
+    }
+  },
 };
 </script>
