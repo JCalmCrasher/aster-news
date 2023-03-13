@@ -52,7 +52,7 @@ export default {
   },
   data() {
     return {
-      fallBack: 'src/img/default.jpg'
+      fallBack: '/default.jpg'
     }
   },
   methods: {
