@@ -16,7 +16,7 @@
         </p>
       </div>
       <div class="ml-[19px] ">
-        <img :src="image" @error="setAltImage" alt="news icon" class="w-[102px] h-[102px] object-cover" />
+        <img :src="image || fallBack" @error="setAltImage" alt="news icon" class="w-[102px] h-[102px] object-cover" />
       </div>
     </div>
     <div class="flex flex-row justify-between flex-wrap mt-2 box-border mb-[13px] ">

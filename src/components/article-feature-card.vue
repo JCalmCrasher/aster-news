@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="ml-[30px] my-[17px] hidden lg:block">
-      <img :src="image" @error="setAltImage" alt="news icon" class="w-[173px] h-[130px] object-cover" />
+      <img :src="image || fallBack" @error="setAltImage" alt="news icon" class="w-[173px] h-[130px] object-cover" />
     </div>
   </div>
 </template>
